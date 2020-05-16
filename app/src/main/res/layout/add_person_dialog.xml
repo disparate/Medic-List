@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/palette_white"
+    app:cardCornerRadius="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp">
+
+            <ImageView
+                android:id="@+id/apCloseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:src="@drawable/ic_clear_black_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/apTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/add_new_title"
+                android:textColor="@color/palette_black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.kazarovets.mediclist.addperson.view.EditTextWithTitle
+                android:id="@+id/apNameEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:etTitle="@string/add_new_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/apCloseButton" />
+
+            <com.kazarovets.mediclist.addperson.view.CovidCategorySelector
+                android:id="@+id/apCategorySelector"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/apCategoryTitle"
+                app:layout_constraintTop_toBottomOf="@id/apNameEdit" />
+
+            <TextView
+                android:id="@+id/apCategoryTitle"
+                style="@style/TextSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_new_category"
+                app:layout_constraintBottom_toBottomOf="@+id/apCategorySelector"
+                app:layout_constraintStart_toStartOf="@id/apNameEdit"
+                app:layout_constraintTop_toTopOf="@+id/apCategorySelector" />
+
+            <View
+                android:id="@+id/spaceBelowButton"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/apCategorySelector" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/apButtonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:enabled="false"
+        android:text="@string/add_new_button_add"
+        android:textAllCaps="true"/>
+
+</androidx.cardview.widget.CardView>

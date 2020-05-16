@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Medic List</string>
+
+
+    <string name="category_covid">COVID+</string>
+    <string name="category_level_1">I ур.</string>
+    <string name="category_level_2">II ур.</string>
+    <string name="category_probable">Вероятные</string>
+    <string name="category_closed">Закрытые</string>
+
+
+    <string name="category_covid_short">C+</string>
+    <string name="category_level_1_short">I</string>
+    <string name="category_level_2_short">II</string>
+    <string name="category_probable_short">+-</string>
+    <string name="category_closed_short">x</string>
+
+    <string name="add_new_title">Добавляем нового</string>
+    <string name="add_new_name">ФИО</string>
+    <string name="add_new_category">Категория</string>
+    <string name="add_new_button_add">Создать</string>
+</resources>

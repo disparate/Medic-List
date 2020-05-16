@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.kazarovets.mediclist.category.bo.CategoryUIPerson" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_margin="4dp"
+        bind:cardBackgroundColor="@color/item_bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/personNameView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingStart="6dp"
+                android:text="@{item.name}"
+                android:textColor="@color/palette_black"
+                android:textSize="16sp"
+                bind:layout_constraintBottom_toBottomOf="parent"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintStart_toStartOf="parent"
+                bind:layout_constraintTop_toTopOf="parent"
+                tools:text="Andrey Kazarovets" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textStyle="bold"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintTop_toTopOf="parent"
+                tools:text="C+"
+                bind:categoryShort="@{item}"
+                tools:textColor="@color/palette_red" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

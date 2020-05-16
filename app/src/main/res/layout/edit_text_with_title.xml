@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:parentTag="android.widget.LinearLayout">
+
+
+    <TextView
+        android:id="@+id/etTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        style="@style/TextSecondary"
+        tools:text="Заголовок" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEdit"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:inputType="text"
+        tools:text="Вводим что-то"
+        android:textSize="16sp" />
+
+</merge>

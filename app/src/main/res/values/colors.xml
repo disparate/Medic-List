@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    
+
+    <color name="palette_white">#FFFFFF</color>
+    <color name="palette_light_grey">#E3DADA</color>
+    <color name="palette_black">#000000</color>
+    <color name="palette_black_70">#aa000000</color>
+    <color name="palette_red">#ff0000</color>
+    <color name="palette_pink">#FF00B7</color>
+    <color name="palette_dark_purple">#57268F</color>
+    <color name="palette_green">#169E28</color>
+
+    <color name="item_bg">@color/palette_white</color>
+    <color name="recycler_bg">@color/palette_light_grey</color>
+</resources>
