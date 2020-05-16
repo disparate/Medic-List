@@ -15,8 +15,12 @@
     <string name="category_probable_short">+-</string>
     <string name="category_closed_short">x</string>
 
-    <string name="add_new_title">Добавляем нового</string>
+    <string name="add_new_title">Добавление</string>
     <string name="add_new_name">ФИО</string>
     <string name="add_new_category">Категория</string>
     <string name="add_new_button_add">Создать</string>
+
+
+    <string name="change_person_title">Изменение</string>
+    <string name="change_person_button">Сохранить</string>
 </resources>

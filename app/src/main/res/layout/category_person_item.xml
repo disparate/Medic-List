@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_margin="4dp"
+        android:foreground="?android:attr/selectableItemBackground"
         bind:cardBackgroundColor="@color/item_bg">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,10 +45,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:textStyle="bold"
+                bind:categoryShort="@{item}"
                 bind:layout_constraintEnd_toEndOf="parent"
                 bind:layout_constraintTop_toTopOf="parent"
                 tools:text="C+"
-                bind:categoryShort="@{item}"
                 tools:textColor="@color/palette_red" />
 
 

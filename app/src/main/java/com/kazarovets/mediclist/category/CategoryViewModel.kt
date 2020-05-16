@@ -1,6 +1,7 @@
 package com.kazarovets.mediclist.category
 
 import androidx.lifecycle.MutableLiveData
+import com.kazarovets.mediclist.app.navigation.AppRouter
 import com.kazarovets.mediclist.base.vm.BaseViewModel
 import com.kazarovets.mediclist.category.bo.CategoryUIPerson
 import com.kazarovets.mediclist.category.bo.CovidCategory
@@ -11,6 +12,7 @@ import com.kazarovets.mediclist.persons.bo.AppPerson
 import com.kazarovets.mediclist.persons.repo.PersonsRepository
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
+import ru.terrakok.cicerone.Router
 import timber.log.Timber
 import javax.inject.Inject
 

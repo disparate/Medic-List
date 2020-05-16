@@ -3,7 +3,7 @@ package com.kazarovets.mediclist.persons.bo
 import com.kazarovets.mediclist.category.bo.CovidCategory
 
 data class AppPerson(
-    val personId: Long,
+    val personId: Int,
     val personName: String,
     val phoneNumber: String?,
     val address: String?,

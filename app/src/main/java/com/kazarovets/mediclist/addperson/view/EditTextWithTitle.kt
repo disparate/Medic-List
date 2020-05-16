@@ -34,6 +34,10 @@ class EditTextWithTitle @JvmOverloads constructor(
         return etEdit.text.toString()
     }
 
+    fun setText(text: String) {
+        etEdit.setText(text)
+    }
+
 
 
     private fun applyAttributes(attrs: AttributeSet) {

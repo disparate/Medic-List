@@ -7,7 +7,6 @@ import com.kazarovets.mediclist.base.fragment.BaseDialogVMFragment
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.activity.di.ActivityComponent
 import com.kazarovets.mediclist.addperson.di.DaggerAddPersonComponent
-import com.kazarovets.mediclist.extensions.dpToPx
 import com.kazarovets.mediclist.extensions.getDeviceSize
 import kotlinx.android.synthetic.main.add_person_dialog.*
 import kotlin.math.roundToInt
@@ -19,10 +18,6 @@ class AddPersonDialogFragment : BaseDialogVMFragment<AddPersonViewModel>() {
     override val layoutId: Int
         get() = R.layout.add_person_dialog
 
-    override fun getDialogHeight(context: Context): Int {
-        return (context.getDeviceSize().y * 0.7).roundToInt()
-    }
-
 
     override val isDialogCancelable: Boolean
         get() = false
@@ -30,14 +25,18 @@ class AddPersonDialogFragment : BaseDialogVMFragment<AddPersonViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        apCloseButton.setOnClickListener {
+        personDialogCloseButton.setOnClickListener {
             closeDialog()
         }
 
-        apNameEdit.onTextChanged = { updateAddButtonEnabled() }
-        apCategorySelector.onCategorySelected = { updateAddButtonEnabled() }
+        personDialogTitle.setText(R.string.add_new_title)
+        personDialogButton.setText(R.string.add_new_button_add)
+        personDialogButton.isEnabled = false
 
-        apButtonAdd.setOnClickListener {
+        personDialogNameEdit.onTextChanged = { updateAddButtonEnabled() }
+        personDialogCategorySelector.onCategorySelected = { updateAddButtonEnabled() }
+
+        personDialogButton.setOnClickListener {
             viewModel.onAddClicked(getScreenValues())
             closeDialog()
         }
@@ -45,8 +44,8 @@ class AddPersonDialogFragment : BaseDialogVMFragment<AddPersonViewModel>() {
 
     private fun getScreenValues(): AddPersonScreenValues {
         return AddPersonScreenValues(
-            apNameEdit.getText(),
-            apCategorySelector.selectedCategory
+            personDialogNameEdit.getText(),
+            personDialogCategorySelector.selectedCategory
         )
     }
 
@@ -54,7 +53,7 @@ class AddPersonDialogFragment : BaseDialogVMFragment<AddPersonViewModel>() {
         val values = getScreenValues()
         val isEnabled = values.name?.isNotEmpty() == true &&
                 values.category != null
-        apButtonAdd.isEnabled = isEnabled
+        personDialogButton.isEnabled = isEnabled
     }
 
     override fun injectDependencies(activityComponent: ActivityComponent) {

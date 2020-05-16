@@ -3,8 +3,8 @@ package com.kazarovets.mediclist.category.bo
 import com.kazarovets.mediclist.base.recycler.UniqueRecyclerItem
 
 data class CategoryUIPerson(
+    val id: Int,
     val name: String,
-    val id: Long,
     val phone: String?,
     val category: CovidCategory?,
     val tabCategory: TabCategory

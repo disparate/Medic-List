@@ -18,7 +18,7 @@
             android:padding="6dp">
 
             <ImageView
-                android:id="@+id/apCloseButton"
+                android:id="@+id/personDialogCloseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
@@ -27,11 +27,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/apTitle"
+                android:id="@+id/personDialogTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@string/add_new_title"
                 android:textColor="@color/palette_black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -41,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.kazarovets.mediclist.addperson.view.EditTextWithTitle
-                android:id="@+id/apNameEdit"
+                android:id="@+id/personDialogNameEdit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -49,27 +48,27 @@
                 app:etTitle="@string/add_new_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/apCloseButton" />
+                app:layout_constraintTop_toBottomOf="@id/personDialogCloseButton" />
 
             <com.kazarovets.mediclist.addperson.view.CovidCategorySelector
-                android:id="@+id/apCategorySelector"
+                android:id="@+id/personDialogCategorySelector"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/apCategoryTitle"
-                app:layout_constraintTop_toBottomOf="@id/apNameEdit" />
+                app:layout_constraintStart_toEndOf="@id/personDialogCategoryTitle"
+                app:layout_constraintTop_toBottomOf="@id/personDialogNameEdit" />
 
             <TextView
-                android:id="@+id/apCategoryTitle"
+                android:id="@+id/personDialogCategoryTitle"
                 style="@style/TextSecondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_new_category"
-                app:layout_constraintBottom_toBottomOf="@+id/apCategorySelector"
-                app:layout_constraintStart_toStartOf="@id/apNameEdit"
-                app:layout_constraintTop_toTopOf="@+id/apCategorySelector" />
+                app:layout_constraintBottom_toBottomOf="@+id/personDialogCategorySelector"
+                app:layout_constraintStart_toStartOf="@id/personDialogNameEdit"
+                app:layout_constraintTop_toTopOf="@+id/personDialogCategorySelector" />
 
             <View
                 android:id="@+id/spaceBelowButton"
@@ -77,20 +76,18 @@
                 android:layout_height="80dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/apCategorySelector" />
+                app:layout_constraintTop_toBottomOf="@id/personDialogCategorySelector" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/apButtonAdd"
+        android:id="@+id/personDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="30dp"
-        android:enabled="false"
-        android:text="@string/add_new_button_add"
         android:textAllCaps="true"/>
 
 </androidx.cardview.widget.CardView>

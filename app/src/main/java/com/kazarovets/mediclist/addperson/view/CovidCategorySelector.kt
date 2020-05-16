@@ -22,7 +22,11 @@ class CovidCategorySelector @JvmOverloads constructor(
 
     var selectedCategory: CovidCategory? = null
 
-    var onCategorySelected: (CovidCategory) -> Unit = { Timber.w("no listener set") }
+    var onCategorySelected: (CovidCategory?) -> Unit = { Timber.w("no listener set") }
+
+    fun selectCategory(category: CovidCategory) {
+        check(category.ordinal)
+    }
 
 
     private fun addChipForCategory(category: CovidCategory) {
@@ -31,6 +35,8 @@ class CovidCategorySelector @JvmOverloads constructor(
             this,
             false
         ) as Chip
+
+        chip.id = category.ordinal
 
         chip.text = context.getString(
             when (category) {
@@ -51,6 +57,11 @@ class CovidCategorySelector @JvmOverloads constructor(
                             c.isChecked = false
                         }
                     }
+            } else {
+                if(selectedCategory == category) {
+                    selectedCategory = null
+                    onCategorySelected(null)
+                }
             }
         }
 

@@ -3,6 +3,7 @@ package com.kazarovets.mediclist.persons.repo.database
 import com.kazarovets.mediclist.extensions.mapList
 import com.kazarovets.mediclist.persons.bo.AppPerson
 import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -16,6 +17,14 @@ class PersonsDBDataSource @Inject constructor(
     fun getPersonsOnceAndStream(): Observable<List<AppPerson>> {
         return dao.getPersons()
             .mapList { personsDBMapper.mapPersonFromDB(it) }
+            .subscribeOn(Schedulers.io())
+    }
+
+    fun getPerson(id: Int): Single<AppPerson> {
+        return dao.getPerson(id)
+            .map {
+                personsDBMapper.mapPersonFromDB(it)
+            }
             .subscribeOn(Schedulers.io())
     }
 

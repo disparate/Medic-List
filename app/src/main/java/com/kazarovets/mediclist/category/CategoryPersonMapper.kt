@@ -9,8 +9,8 @@ class CategoryPersonMapper @Inject constructor() {
 
     fun mapPerson(person: AppPerson, category: TabCategory): CategoryUIPerson {
         return CategoryUIPerson(
-            name = person.personName,
             id = person.personId,
+            name = person.personName,
             phone = person.phoneNumber,
             category = person.category,
             tabCategory = category

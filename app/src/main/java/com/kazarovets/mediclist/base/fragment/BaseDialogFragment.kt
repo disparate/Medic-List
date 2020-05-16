@@ -15,7 +15,9 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.FrameLayout
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.extensions.dpToPx
+import com.kazarovets.mediclist.extensions.getDeviceSize
 import java.lang.Exception
+import kotlin.math.roundToInt
 
 
 abstract class BaseDialogFragment : DialogFragment() {
@@ -29,7 +31,9 @@ abstract class BaseDialogFragment : DialogFragment() {
 
     open val customAnimationStyle: Int? = null
 
-    protected open fun getDialogHeight(context: Context) = MATCH_PARENT
+    protected open fun getDialogHeight(context: Context): Int {
+        return (context.getDeviceSize().y * 0.7).roundToInt()
+    }
 
     protected open fun getDialogWidth(context: Context) = 340.dpToPx()
 
