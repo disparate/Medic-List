@@ -24,6 +24,7 @@ object PersonTypeConverters {
 
 
     private val CATEGORY_COVID = "COVID"
+    private val CATEGORY_COVID_PNEUMONIA = "COVID_PNEUMONIA"
     private val CATEGORY_LEVEL1 = "level1"
     private val CATEGORY_LEVEL2 = "level2"
     private val CATEGORY_PROBABLE = "probable"
@@ -33,6 +34,7 @@ object PersonTypeConverters {
     fun restoreCategory(c: String?): CovidCategory? {
         return when (c) {
             CATEGORY_COVID -> CovidCategory.COVID
+            CATEGORY_COVID_PNEUMONIA -> CovidCategory.COVID_PNEUMONIA
             CATEGORY_LEVEL1 -> CovidCategory.LEVEL1
             CATEGORY_LEVEL2 -> CovidCategory.LEVEL2
             CATEGORY_PROBABLE -> CovidCategory.PROBABLE
@@ -45,6 +47,7 @@ object PersonTypeConverters {
     fun saveCategory(c: CovidCategory?): String? {
         return when (c) {
             CovidCategory.COVID -> CATEGORY_COVID
+            CovidCategory.COVID_PNEUMONIA -> CATEGORY_COVID_PNEUMONIA
             CovidCategory.LEVEL1 -> CATEGORY_LEVEL1
             CovidCategory.LEVEL2 -> CATEGORY_LEVEL2
             CovidCategory.PROBABLE -> CATEGORY_PROBABLE

@@ -1,5 +1,5 @@
 package com.kazarovets.mediclist.category.bo
 
 enum class CovidCategory {
-    COVID, LEVEL1, LEVEL2, PROBABLE
+    COVID, COVID_PNEUMONIA, LEVEL1, LEVEL2, PROBABLE
 }

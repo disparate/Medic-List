@@ -1,9 +1,8 @@
 package com.kazarovets.mediclist.addperson.di
 
 import com.kazarovets.mediclist.activity.di.ActivityComponent
-import com.kazarovets.mediclist.addperson.AddPersonDialogFragment
+import com.kazarovets.mediclist.addperson.AddPersonFragment
 import com.kazarovets.mediclist.app.di.vm.ViewModelProviderModule
-import com.kazarovets.mediclist.category.CategoryFragment
 import dagger.Component
 
 
@@ -13,5 +12,5 @@ import dagger.Component
     modules = [AddPersonModule::class, ViewModelProviderModule::class]
 )
 interface AddPersonComponent {
-    fun inject(fgt: AddPersonDialogFragment)
+    fun inject(fgt: AddPersonFragment)
 }

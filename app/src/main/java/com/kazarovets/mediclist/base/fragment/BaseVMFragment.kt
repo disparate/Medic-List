@@ -25,13 +25,13 @@ abstract class BaseVMFragment<VM : BaseViewModel>: BaseFragment() {
         val activityComponent = (activity as? MainActivity)?.activityComponent
             ?: throw IllegalStateException("Base fragment must be inserted in MainActivity")
 
-        injectDependencies(view.context.appComponent, activityComponent)
+        injectDependencies(activityComponent)
 
         viewModel = ViewModelProviders.of(this, viewModelProvider)
             .get(getViewModelClass().java)
     }
 
-    abstract fun injectDependencies(appComponent: AppComponent, activityComponent: ActivityComponent)
+    abstract fun injectDependencies(activityComponent: ActivityComponent)
 
     abstract fun getViewModelClass(): KClass<VM>
 

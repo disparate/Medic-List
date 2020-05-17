@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.base.fragment.BaseVMFragment
 import com.kazarovets.mediclist.activity.di.ActivityComponent
-import com.kazarovets.mediclist.addperson.AddPersonDialogFragment
+import com.kazarovets.mediclist.addperson.AddPersonFragment
 import com.kazarovets.mediclist.app.di.AppComponent
 import com.kazarovets.mediclist.home.di.DaggerHomeComponent
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -35,16 +35,13 @@ class HomeFragment : BaseVMFragment<HomeViewModel>() {
     }
 
     private fun setupAddButton() {
-
         homeAddFab.setOnClickListener {
-            AddPersonDialogFragment()
-                .show(childFragmentManager, "add_person")
+            viewModel.onAddPersonClick()
         }
     }
 
 
     override fun injectDependencies(
-        appComponent: AppComponent,
         activityComponent: ActivityComponent
     ) {
         DaggerHomeComponent.builder()

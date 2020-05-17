@@ -2,6 +2,7 @@ package com.kazarovets.mediclist.category
 
 import androidx.lifecycle.MutableLiveData
 import com.kazarovets.mediclist.app.navigation.AppRouter
+import com.kazarovets.mediclist.app.navigation.Screens
 import com.kazarovets.mediclist.base.vm.BaseViewModel
 import com.kazarovets.mediclist.category.bo.CategoryUIPerson
 import com.kazarovets.mediclist.category.bo.CovidCategory
@@ -18,13 +19,18 @@ import javax.inject.Inject
 
 class CategoryViewModel @Inject constructor(
     private val personsRepository: PersonsRepository,
-    private val mapper: CategoryPersonMapper
+    private val mapper: CategoryPersonMapper,
+    private val appRouter: AppRouter
 ) : BaseViewModel() {
 
     val categoryPersons = MutableLiveData<List<CategoryUIPerson>>()
 
     fun init(category: TabCategory) {
         observePersons(category)
+    }
+
+    fun openChangePerson(person: CategoryUIPerson) {
+        appRouter.navigateTo(Screens.changePerson(person.id))
     }
 
     private fun observePersons(category: TabCategory) {
@@ -45,6 +51,7 @@ class CategoryViewModel @Inject constructor(
     private fun List<AppPerson>.filterForCategory(tabCategory: TabCategory): List<AppPerson> {
         return when (tabCategory) {
             TabCategory.COVID -> filterForCovidCategory(CovidCategory.COVID)
+            TabCategory.COVID_PNEUMONIA -> filterForCovidCategory(CovidCategory.COVID_PNEUMONIA)
             TabCategory.LEVEL1 -> filterForCovidCategory(CovidCategory.LEVEL1)
             TabCategory.LEVEL2 -> filterForCovidCategory(CovidCategory.LEVEL2)
             TabCategory.PROBABLE -> filterForCovidCategory(CovidCategory.PROBABLE)

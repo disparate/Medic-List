@@ -10,6 +10,7 @@
     <color name="palette_black">#000000</color>
     <color name="palette_black_70">#aa000000</color>
     <color name="palette_red">#ff0000</color>
+    <color name="palette_dark_red">#5C0000</color>
     <color name="palette_pink">#FF00B7</color>
     <color name="palette_dark_purple">#57268F</color>
     <color name="palette_green">#169E28</color>

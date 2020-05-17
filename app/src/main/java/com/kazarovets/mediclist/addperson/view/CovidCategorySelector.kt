@@ -41,6 +41,7 @@ class CovidCategorySelector @JvmOverloads constructor(
         chip.text = context.getString(
             when (category) {
                 CovidCategory.COVID -> R.string.category_covid
+                CovidCategory.COVID_PNEUMONIA -> R.string.category_covid_pneumonia
                 CovidCategory.LEVEL1 -> R.string.category_level_1
                 CovidCategory.LEVEL2 -> R.string.category_level_2
                 CovidCategory.PROBABLE -> R.string.category_probable

@@ -30,6 +30,7 @@ class HomeCategoriesAdapter(fragmentManager: FragmentManager,
     override fun getPageTitle(position: Int): CharSequence? {
         return context.getString(when(items[position]) {
             TabCategory.COVID -> R.string.category_covid
+            TabCategory.COVID_PNEUMONIA -> R.string.category_covid_pneumonia
             TabCategory.LEVEL1 -> R.string.category_level_1
             TabCategory.LEVEL2 -> R.string.category_level_2
             TabCategory.PROBABLE -> R.string.category_probable

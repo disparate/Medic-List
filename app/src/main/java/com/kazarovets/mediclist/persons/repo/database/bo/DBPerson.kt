@@ -38,6 +38,9 @@ class DBPerson(
     @ColumnInfo(name = "isClosed")
     val isClosed: Boolean,
 
+    @ColumnInfo(name = "additionalNotes")
+    val additionalNotes: String,
+
     @ColumnInfo(name = "addedAt")
     val addedAt: Long,
 

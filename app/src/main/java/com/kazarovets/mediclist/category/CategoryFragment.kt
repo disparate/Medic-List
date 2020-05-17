@@ -6,13 +6,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.activity.di.ActivityComponent
-import com.kazarovets.mediclist.app.di.AppComponent
 import com.kazarovets.mediclist.base.fragment.BaseVMFragment
 import com.kazarovets.mediclist.category.bo.CategoryUIPerson
 import com.kazarovets.mediclist.category.bo.TabCategory
 import com.kazarovets.mediclist.category.di.DaggerCategoryComponent
 import com.kazarovets.mediclist.category.recycler.CategoryRecyclerAdapter
-import com.kazarovets.mediclist.changeperson.ChangePersonDialogFragment
+import com.kazarovets.mediclist.changeperson.ChangePersonFragment
 import com.kazarovets.mediclist.extensions.withArguments
 import kotlinx.android.synthetic.main.category_fragment.*
 
@@ -41,7 +40,7 @@ class CategoryFragment : BaseVMFragment<CategoryViewModel>() {
         categoryRecycler.adapter = adapter
 
         adapter.itemClickListener = {
-            openChangePersonDialog(it.item)
+            viewModel.openChangePerson(it.item)
         }
 
         viewModel.categoryPersons.observe(viewLifecycleOwner, Observer {
@@ -49,13 +48,7 @@ class CategoryFragment : BaseVMFragment<CategoryViewModel>() {
         })
     }
 
-    private fun openChangePersonDialog(person: CategoryUIPerson) {
-        ChangePersonDialogFragment.newInstance(person.id)
-            .show(childFragmentManager, "change_person")
-    }
-
     override fun injectDependencies(
-        appComponent: AppComponent,
         activityComponent: ActivityComponent
     ) {
         DaggerCategoryComponent.builder()

@@ -12,6 +12,7 @@ data class AppPerson(
     val treatment: String?,
     val category: CovidCategory,
     val isClosed: Boolean,
+    val additionaNotes: String,
     val addedAt: Long,
     val updatedAt: Long
 )

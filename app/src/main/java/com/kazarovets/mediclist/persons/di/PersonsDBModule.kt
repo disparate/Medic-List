@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.kazarovets.mediclist.persons.repo.database.PersonsDao
 import com.kazarovets.mediclist.persons.repo.database.PersonsDatabase
+import com.kazarovets.mediclist.persons.repo.database.PersonsDatabase_Migrations
 import dagger.Module
 import dagger.Provides
 
@@ -13,6 +14,7 @@ class PersonsDBModule {
     @Provides
     fun providePersonsDatabase(app: Application): PersonsDatabase {
         return Room.databaseBuilder(app, PersonsDatabase::class.java, "persons_db")
+            .addMigrations(*PersonsDatabase_Migrations.build())
             .build()
     }
 

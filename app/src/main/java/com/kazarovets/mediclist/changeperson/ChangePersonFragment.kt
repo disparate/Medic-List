@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.View
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.activity.di.ActivityComponent
-import com.kazarovets.mediclist.addperson.BasePersonDialogFragment
+import com.kazarovets.mediclist.addperson.BasePersonFragment
 import com.kazarovets.mediclist.addperson.PersonScreenValues
-import com.kazarovets.mediclist.base.fragment.BaseDialogVMFragment
 import com.kazarovets.mediclist.changeperson.di.DaggerChangePersonComponent
 import com.kazarovets.mediclist.extensions.withArguments
-import kotlinx.android.synthetic.main.add_person_dialog.*
+import kotlinx.android.synthetic.main.add_person_fragment.*
 
-class ChangePersonDialogFragment : BasePersonDialogFragment<ChangePersonViewModel>() {
+class ChangePersonFragment : BasePersonFragment<ChangePersonViewModel>() {
 
     override fun getViewModelClass() = ChangePersonViewModel::class
 
@@ -32,6 +31,10 @@ class ChangePersonDialogFragment : BasePersonDialogFragment<ChangePersonViewMode
         fillWithScreenValues(initScreenValues)
     }
 
+    override fun closeScreen() {
+        viewModel.closeScreen()
+    }
+
     private fun fillWithScreenValues(values: PersonScreenValues) {
         personDialogNameEdit.setText(values.name.orEmpty())
         values.category?.let { personDialogCategorySelector.selectCategory(it) }
@@ -39,6 +42,8 @@ class ChangePersonDialogFragment : BasePersonDialogFragment<ChangePersonViewMode
         personDialogPhone.setText(values.phone.orEmpty())
         personDialogIsClosedCheckbox.isChecked = values.isClosed ?: false
         personDialogSmears.setSmears(values.smears)
+        personDialogDisabilityCertificate.setText(values.disabilityCertificate.orEmpty())
+        personDialogTreatment.setText(values.treatment.orEmpty())
     }
 
 
@@ -53,7 +58,7 @@ class ChangePersonDialogFragment : BasePersonDialogFragment<ChangePersonViewMode
 
         private const val ARG_USER_ID = "arg_user_id"
 
-        fun newInstance(userId: Int) = ChangePersonDialogFragment().withArguments {
+        fun newInstance(userId: Int) = ChangePersonFragment().withArguments {
             putInt(ARG_USER_ID, userId)
         }
     }

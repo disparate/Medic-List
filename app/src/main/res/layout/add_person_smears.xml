@@ -18,7 +18,7 @@
         android:padding="4dp"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:tint="@color/colorAccent"
+        android:tint="@color/colorPrimary"
         android:src="@drawable/ic_add_white_24dp"
         />
 </merge>

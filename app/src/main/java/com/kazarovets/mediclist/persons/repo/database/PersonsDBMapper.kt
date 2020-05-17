@@ -19,6 +19,7 @@ class PersonsDBMapper @Inject constructor() {
             treatment = person.treatment,
             category = person.category,
             isClosed = person.isClosed,
+            additionaNotes = person.additionalNotes,
             addedAt = person.addedAt,
             updatedAt = person.updatedAt
         )
@@ -35,6 +36,7 @@ class PersonsDBMapper @Inject constructor() {
             treatment = person.treatment,
             category = person.category,
             isClosed = person.isClosed,
+            additionalNotes = person.additionaNotes,
             addedAt = person.addedAt,
             updatedAt = person.updatedAt
         )

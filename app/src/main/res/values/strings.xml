@@ -2,7 +2,8 @@
     <string name="app_name">Medic List</string>
 
 
-    <string name="category_covid">COVID+</string>
+    <string name="category_covid">COVID</string>
+    <string name="category_covid_pneumonia">COVID + J18</string>
     <string name="category_level_1">I ур.</string>
     <string name="category_level_2">II ур.</string>
     <string name="category_probable">Вероятные</string>
@@ -10,6 +11,7 @@
 
 
     <string name="category_covid_short">C+</string>
+    <string name="category_covid_pneumonia_short">C+ J18</string>
     <string name="category_level_1_short">I</string>
     <string name="category_level_2_short">II</string>
     <string name="category_probable_short">+-</string>
@@ -22,6 +24,8 @@
     <string name="add_new_phone">Телефон*:</string>
     <string name="add_new_is_closed">Закрыт?:</string>
     <string name="add_new_smears">Мазки:</string>
+    <string name="add_new_disability_certificate">ЛН:</string>
+    <string name="add_new_disability_treatment">Лечение:</string>
     <string name="add_new_button_add">Создать</string>
 
 

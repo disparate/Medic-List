@@ -1,5 +1,6 @@
 package com.kazarovets.mediclist.addperson
 
+import com.kazarovets.mediclist.app.navigation.AppRouter
 import com.kazarovets.mediclist.base.vm.BaseViewModel
 import com.kazarovets.mediclist.category.bo.CovidCategory
 import com.kazarovets.mediclist.persons.bo.AppPerson
@@ -7,9 +8,9 @@ import com.kazarovets.mediclist.persons.repo.PersonsRepository
 import javax.inject.Inject
 
 class AddPersonViewModel @Inject constructor(
-    private val personsRepository: PersonsRepository
+    private val personsRepository: PersonsRepository,
+    private val appRouter: AppRouter
 ) : BaseViewModel() {
-
 
     fun onAddClicked(
         addPersonScreenValues: PersonScreenValues
@@ -20,13 +21,19 @@ class AddPersonViewModel @Inject constructor(
             phoneNumber = addPersonScreenValues.phone ?: return,
             address = addPersonScreenValues.address,
             smearsDates = addPersonScreenValues.smears,
-            disabilityCertificateDate = "14.12", //TODO: add
-            treatment = "лечить осторожно", //TODO: add
+            disabilityCertificateDate = addPersonScreenValues.disabilityCertificate,
+            treatment = addPersonScreenValues.treatment,
             category = addPersonScreenValues.category ?: return,
             isClosed = false,
+            additionaNotes = "", //TODO
             addedAt = System.currentTimeMillis(),
             updatedAt = System.currentTimeMillis()
         )
         personsRepository.addPerson(person)
+    }
+
+
+    fun closeScreen() {
+        appRouter.exit()
     }
 }

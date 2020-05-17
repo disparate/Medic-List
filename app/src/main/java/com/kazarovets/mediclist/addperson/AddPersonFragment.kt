@@ -7,16 +7,15 @@ import com.kazarovets.mediclist.base.fragment.BaseDialogVMFragment
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.activity.di.ActivityComponent
 import com.kazarovets.mediclist.addperson.di.DaggerAddPersonComponent
+import com.kazarovets.mediclist.app.di.AppComponent
+import com.kazarovets.mediclist.base.fragment.BaseVMFragment
 import com.kazarovets.mediclist.base.vm.BaseViewModel
-import kotlinx.android.synthetic.main.add_person_dialog.*
+import kotlinx.android.synthetic.main.add_person_fragment.*
 
-abstract class BasePersonDialogFragment<VM : BaseViewModel> : BaseDialogVMFragment<VM>() {
+abstract class BasePersonFragment<VM : BaseViewModel> : BaseVMFragment<VM>() {
 
-    override val layoutId: Int
-        get() = R.layout.add_person_dialog
-
-    override val isDialogCancelable: Boolean
-        get() = false
+    override val layoutResId: Int
+        get() = R.layout.add_person_fragment
 
     abstract fun onButtonClicked()
 
@@ -24,11 +23,13 @@ abstract class BasePersonDialogFragment<VM : BaseViewModel> : BaseDialogVMFragme
 
     abstract val buttonRes: Int
 
+    abstract fun closeScreen()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         personDialogCloseButton.setOnClickListener {
-            closeDialog()
+            closeScreen()
         }
 
         personDialogTitle.setText(titleRes)
@@ -41,7 +42,7 @@ abstract class BasePersonDialogFragment<VM : BaseViewModel> : BaseDialogVMFragme
 
         personDialogButton.setOnClickListener {
             onButtonClicked()
-            closeDialog()
+            closeScreen()
         }
     }
 
@@ -54,7 +55,9 @@ abstract class BasePersonDialogFragment<VM : BaseViewModel> : BaseDialogVMFragme
             isClosed = if (personDialogIsClosedCheckbox.isVisible) {
                 personDialogIsClosedCheckbox.isChecked
             } else null,
-            smears = personDialogSmears.getSmears()
+            smears = personDialogSmears.getSmears(),
+            disabilityCertificate = personDialogDisabilityCertificate.getText(),
+            treatment = personDialogTreatment.getText()
         )
     }
 
@@ -68,7 +71,7 @@ abstract class BasePersonDialogFragment<VM : BaseViewModel> : BaseDialogVMFragme
 
 }
 
-class AddPersonDialogFragment : BasePersonDialogFragment<AddPersonViewModel>() {
+class AddPersonFragment : BasePersonFragment<AddPersonViewModel>() {
 
     override fun getViewModelClass() = AddPersonViewModel::class
 
@@ -80,11 +83,17 @@ class AddPersonDialogFragment : BasePersonDialogFragment<AddPersonViewModel>() {
 
     override val buttonRes: Int = R.string.add_new_button_add
 
-    override fun injectDependencies(activityComponent: ActivityComponent) {
+    override fun injectDependencies(
+        activityComponent: ActivityComponent
+    ) {
         DaggerAddPersonComponent.builder()
             .activityComponent(activityComponent)
             .build()
             .inject(this)
+    }
+
+    override fun closeScreen() {
+        viewModel.closeScreen()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
