@@ -3,6 +3,6 @@
 
     <declare-styleable name="EditTextWithTitle">
         <attr name="etTitle" format="string" />
-        <attr name="menuButtonTitleShadowColor" format="color" />
+        <attr name="android:inputType"/>
     </declare-styleable>
 </resources>

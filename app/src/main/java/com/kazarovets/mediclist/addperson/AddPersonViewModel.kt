@@ -12,27 +12,21 @@ class AddPersonViewModel @Inject constructor(
 
 
     fun onAddClicked(
-        addPersonScreenValues: AddPersonScreenValues
+        addPersonScreenValues: PersonScreenValues
     ) {
-        val name = addPersonScreenValues.name ?: return
-        val category = addPersonScreenValues.category ?: return
-        val person = createPerson(name, category, false)
+        val person = AppPerson(
+            0,
+            personName = addPersonScreenValues.name ?: return,
+            phoneNumber = addPersonScreenValues.phone ?: return,
+            address = addPersonScreenValues.address,
+            smearsDates = addPersonScreenValues.smears,
+            disabilityCertificateDate = "14.12", //TODO: add
+            treatment = "лечить осторожно", //TODO: add
+            category = addPersonScreenValues.category ?: return,
+            isClosed = false,
+            addedAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis()
+        )
         personsRepository.addPerson(person)
     }
-
-    private fun createPerson(
-        name: String, category: CovidCategory,
-        isClosed: Boolean
-    ) = AppPerson(
-        0,
-        name,
-        "+375(29)23124234", "ул. Птушкина, дом Колотушкина",
-        listOf("12.12", "10.12"),
-        disabilityCertificateDate = "14.12",
-        treatment = "лечить осторожно",
-        category = category,
-        isClosed = isClosed,
-        addedAt = System.currentTimeMillis(),
-        updatedAt = System.currentTimeMillis()
-    )
 }

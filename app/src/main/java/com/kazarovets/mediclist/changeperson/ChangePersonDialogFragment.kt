@@ -4,19 +4,23 @@ import android.os.Bundle
 import android.view.View
 import com.kazarovets.mediclist.R
 import com.kazarovets.mediclist.activity.di.ActivityComponent
-import com.kazarovets.mediclist.addperson.AddPersonScreenValues
+import com.kazarovets.mediclist.addperson.BasePersonDialogFragment
+import com.kazarovets.mediclist.addperson.PersonScreenValues
 import com.kazarovets.mediclist.base.fragment.BaseDialogVMFragment
 import com.kazarovets.mediclist.changeperson.di.DaggerChangePersonComponent
 import com.kazarovets.mediclist.extensions.withArguments
 import kotlinx.android.synthetic.main.add_person_dialog.*
-import kotlin.reflect.KClass
 
-class ChangePersonDialogFragment : BaseDialogVMFragment<ChangePersonViewModel>() {
+class ChangePersonDialogFragment : BasePersonDialogFragment<ChangePersonViewModel>() {
 
     override fun getViewModelClass() = ChangePersonViewModel::class
 
-    override val layoutId: Int
-        get() = R.layout.add_person_dialog
+    override fun onButtonClicked() {
+        viewModel.onChangeClicked(getScreenValues())
+    }
+
+    override val titleRes: Int = R.string.change_person_title
+    override val buttonRes: Int = R.string.change_person_button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,42 +30,17 @@ class ChangePersonDialogFragment : BaseDialogVMFragment<ChangePersonViewModel>()
         val initScreenValues = viewModel.init(userId) ?: return
 
         fillWithScreenValues(initScreenValues)
-
-        personDialogCloseButton.setOnClickListener {
-            closeDialog()
-        }
-
-        personDialogTitle.setText(R.string.change_person_title)
-        personDialogButton.setText(R.string.change_person_button)
-
-        personDialogNameEdit.onTextChanged = { updateButtonEnabled() }
-        personDialogCategorySelector.onCategorySelected = { updateButtonEnabled() }
-
-        personDialogButton.setOnClickListener {
-            viewModel.onChangeClicked(getScreenValues())
-            closeDialog()
-        }
-
     }
 
-    private fun fillWithScreenValues(values: AddPersonScreenValues) {
+    private fun fillWithScreenValues(values: PersonScreenValues) {
         personDialogNameEdit.setText(values.name.orEmpty())
         values.category?.let { personDialogCategorySelector.selectCategory(it) }
+        personDialogAddress.setText(values.address.orEmpty())
+        personDialogPhone.setText(values.phone.orEmpty())
+        personDialogIsClosedCheckbox.isChecked = values.isClosed ?: false
+        personDialogSmears.setSmears(values.smears)
     }
 
-    private fun getScreenValues(): AddPersonScreenValues {
-        return AddPersonScreenValues(
-            personDialogNameEdit.getText(),
-            personDialogCategorySelector.selectedCategory
-        )
-    }
-
-    private fun updateButtonEnabled() {
-        val values = getScreenValues()
-        val isEnabled = values.name?.isNotEmpty() == true &&
-                values.category != null
-        personDialogButton.isEnabled = isEnabled
-    }
 
     override fun injectDependencies(activityComponent: ActivityComponent) {
         DaggerChangePersonComponent.builder()
@@ -78,4 +57,5 @@ class ChangePersonDialogFragment : BaseDialogVMFragment<ChangePersonViewModel>()
             putInt(ARG_USER_ID, userId)
         }
     }
+
 }

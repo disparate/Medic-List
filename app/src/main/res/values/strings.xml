@@ -16,8 +16,12 @@
     <string name="category_closed_short">x</string>
 
     <string name="add_new_title">Добавление</string>
-    <string name="add_new_name">ФИО</string>
-    <string name="add_new_category">Категория</string>
+    <string name="add_new_name">ФИО*:</string>
+    <string name="add_new_category">Категория*:</string>
+    <string name="add_new_address">Адрес:</string>
+    <string name="add_new_phone">Телефон*:</string>
+    <string name="add_new_is_closed">Закрыт?:</string>
+    <string name="add_new_smears">Мазки:</string>
     <string name="add_new_button_add">Создать</string>
 
 

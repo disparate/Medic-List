@@ -1,6 +1,6 @@
 package com.kazarovets.mediclist.changeperson
 
-import com.kazarovets.mediclist.addperson.AddPersonScreenValues
+import com.kazarovets.mediclist.addperson.PersonScreenValues
 import com.kazarovets.mediclist.base.vm.BaseViewModel
 import com.kazarovets.mediclist.persons.bo.AppPerson
 import com.kazarovets.mediclist.persons.repo.PersonsRepository
@@ -14,7 +14,7 @@ class ChangePersonViewModel @Inject constructor(
 
     private var person: AppPerson? = null
 
-    fun init(userId: Int): AddPersonScreenValues? {
+    fun init(userId: Int): PersonScreenValues? {
         val person = try {
             repo.getPerson(userId).blockingGet()
         } catch (e: Exception) {
@@ -23,17 +23,25 @@ class ChangePersonViewModel @Inject constructor(
         }
 
         this.person = person
-        return AddPersonScreenValues(
-            person.personName,
-            person.category
+        return PersonScreenValues(
+            name = person.personName,
+            category = person.category,
+            phone = person.phoneNumber,
+            address = person.address,
+            isClosed = person.isClosed,
+            smears = person.smearsDates
         )
     }
 
-    fun onChangeClicked(values: AddPersonScreenValues) {
+    fun onChangeClicked(values: PersonScreenValues) {
         person?.let {
             val newPerson = it.copy(
                 personName = values.name ?: it.personName,
-                category = values.category ?: it.category
+                category = values.category ?: it.category,
+                phoneNumber = values.phone ?: it.phoneNumber,
+                address = values.address ?: it.address,
+                isClosed = values.isClosed ?: it.isClosed,
+                smearsDates = values.smears.orEmpty()
             )
             repo.updatePerson(newPerson)
         }

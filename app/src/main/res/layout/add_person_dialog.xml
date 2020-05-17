@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:inputType="textPersonName"
                 app:etTitle="@string/add_new_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,13 +71,74 @@
                 app:layout_constraintStart_toStartOf="@id/personDialogNameEdit"
                 app:layout_constraintTop_toTopOf="@+id/personDialogCategorySelector" />
 
+
+            <com.kazarovets.mediclist.addperson.view.EditTextWithTitle
+                android:id="@+id/personDialogAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:inputType="textMultiLine"
+                app:etTitle="@string/add_new_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personDialogCategorySelector" />
+
+            <com.kazarovets.mediclist.addperson.view.EditTextWithTitle
+                android:id="@+id/personDialogPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:inputType="phone"
+                app:etTitle="@string/add_new_phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personDialogAddress" />
+
+
+            <TextView
+                android:id="@+id/personDialogSmearsTitle"
+                style="@style/TextSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_new_smears"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/personDialogSmears"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/personDialogSmears" />
+
+            <com.kazarovets.mediclist.addperson.view.SmearsView
+                android:id="@+id/personDialogSmears"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/personDialogPhone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/personDialogSmearsTitle"
+                android:layout_marginStart="16dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/personDialogIsClosedCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/add_new_is_closed"
+                android:layoutDirection="rtl"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personDialogSmears" />
+
             <View
                 android:id="@+id/spaceBelowButton"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/personDialogCategorySelector" />
+                app:layout_constraintTop_toBottomOf="@id/personDialogIsClosedCheckbox" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -88,6 +150,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="30dp"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true" />
 
 </androidx.cardview.widget.CardView>

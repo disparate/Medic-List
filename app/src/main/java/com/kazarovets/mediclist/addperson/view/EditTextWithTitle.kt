@@ -9,7 +9,7 @@ import com.kazarovets.mediclist.R
 import kotlinx.android.synthetic.main.edit_text_with_title.view.*
 import timber.log.Timber
 
-class EditTextWithTitle @JvmOverloads constructor(
+open class EditTextWithTitle @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
@@ -39,15 +39,20 @@ class EditTextWithTitle @JvmOverloads constructor(
     }
 
 
-
     private fun applyAttributes(attrs: AttributeSet) {
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.EditTextWithTitle, 0, 0)
         try {
             a.getText(R.styleable.EditTextWithTitle_etTitle)?.let {
                 title = it.toString()
             }
+
+            val inputType = a.getInt(R.styleable.EditTextWithTitle_android_inputType, -1)
+            if (inputType != -1) {
+                etEdit.inputType = inputType
+            }
         } finally {
             a.recycle()
         }
     }
 }
+
