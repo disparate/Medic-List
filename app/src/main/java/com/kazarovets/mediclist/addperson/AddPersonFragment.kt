@@ -57,7 +57,8 @@ abstract class BasePersonFragment<VM : BaseViewModel> : BaseVMFragment<VM>() {
             } else null,
             smears = personDialogSmears.getSmears(),
             disabilityCertificate = personDialogDisabilityCertificate.getText(),
-            treatment = personDialogTreatment.getText()
+            treatment = personDialogTreatment.getText(),
+            additionalNotes = personDialogAdditionalNotes.getText()
         )
     }
 
@@ -100,7 +101,6 @@ class AddPersonFragment : BasePersonFragment<AddPersonViewModel>() {
         super.onViewCreated(view, savedInstanceState)
 
         personDialogButton.isEnabled = false
-
         personDialogIsClosedCheckbox.isVisible = false
     }
 }

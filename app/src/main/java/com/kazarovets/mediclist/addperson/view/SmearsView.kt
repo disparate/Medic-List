@@ -84,6 +84,4 @@ class SmearViewItem @JvmOverloads constructor(
     fun setNumber(number: Int) {
         smearItemEditText.title = "#$number"
     }
-
-
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.kazarovets.mediclist.app.navigation.AppRouter
 import com.kazarovets.mediclist.activity.MainActivityViewModel
 import com.kazarovets.mediclist.app.di.vm.ViewModelKey
+import com.kazarovets.mediclist.phonecontacts.PhoneContactsManager
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
@@ -18,8 +19,9 @@ class ActivityModule(val activity: Activity) {
     @ViewModelKey(MainActivityViewModel::class)
     fun mainVM(
         app: Application,
-        router: AppRouter
+        router: AppRouter,
+        contactsManager: PhoneContactsManager
     ): ViewModel {
-        return MainActivityViewModel(app, router)
+        return MainActivityViewModel(app, router, contactsManager)
     }
 }

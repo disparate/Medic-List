@@ -4,13 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/smearsTableIcon"
+            android:adjustViewBounds="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:src="@drawable/ic_smears_24dp"
+            android:tint="@color/palette_white" />
+
+
+    </LinearLayout>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:tabGravity="fill"
         app:tabMode="scrollable" />
 
@@ -26,12 +49,12 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/homeAddFab"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:src="@drawable/ic_add_white_24dp"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="18dp"
-        app:tint="@color/palette_white"
-        app:backgroundTint="@color/colorPrimary"
-        android:src="@drawable/ic_add_white_24dp"
-        android:layout_height="wrap_content"/>
+        app:tint="@color/palette_white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

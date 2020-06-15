@@ -44,6 +44,7 @@ class ChangePersonFragment : BasePersonFragment<ChangePersonViewModel>() {
         personDialogSmears.setSmears(values.smears)
         personDialogDisabilityCertificate.setText(values.disabilityCertificate.orEmpty())
         personDialogTreatment.setText(values.treatment.orEmpty())
+        personDialogAdditionalNotes.setText(values.additionalNotes.orEmpty())
     }
 
 

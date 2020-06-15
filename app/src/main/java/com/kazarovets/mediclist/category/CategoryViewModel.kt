@@ -52,6 +52,7 @@ class CategoryViewModel @Inject constructor(
         return when (tabCategory) {
             TabCategory.COVID -> filterForCovidCategory(CovidCategory.COVID)
             TabCategory.COVID_PNEUMONIA -> filterForCovidCategory(CovidCategory.COVID_PNEUMONIA)
+            TabCategory.PNEUMONIA -> filterForCovidCategory(CovidCategory.PNEUMONIA)
             TabCategory.LEVEL1 -> filterForCovidCategory(CovidCategory.LEVEL1)
             TabCategory.LEVEL2 -> filterForCovidCategory(CovidCategory.LEVEL2)
             TabCategory.PROBABLE -> filterForCovidCategory(CovidCategory.PROBABLE)

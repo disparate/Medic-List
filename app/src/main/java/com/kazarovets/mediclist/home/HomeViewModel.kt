@@ -11,11 +11,17 @@ class HomeViewModel @Inject constructor(
     private val appRouter: AppRouter
 ) : BaseViewModel() {
 
+    var selectedTab: TabCategory? = null
+
     val tabs = MutableLiveData<List<TabCategory>>().apply {
         value = TabCategory.values().toList()
     }
 
     fun onAddPersonClick() {
         appRouter.navigateTo(Screens.addPerson())
+    }
+
+    fun onSmearsTableClick() {
+        appRouter.navigateTo(Screens.smearsTable())
     }
 }

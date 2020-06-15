@@ -134,6 +134,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/personDialogDisabilityCertificate" />
 
+            <com.kazarovets.mediclist.addperson.view.EditTextWithTitle
+                android:id="@+id/personDialogAdditionalNotes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:inputType="textMultiLine"
+                app:etTitle="@string/add_new_additional_notes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personDialogTreatment" />
+
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/personDialogIsClosedCheckbox"
                 android:layout_width="wrap_content"
@@ -142,7 +153,7 @@
                 android:layoutDirection="rtl"
                 android:text="@string/add_new_is_closed"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/personDialogTreatment" />
+                app:layout_constraintTop_toBottomOf="@id/personDialogAdditionalNotes" />
 
             <View
                 android:id="@+id/spaceBelowButton"

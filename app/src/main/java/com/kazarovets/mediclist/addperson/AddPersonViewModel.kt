@@ -25,7 +25,7 @@ class AddPersonViewModel @Inject constructor(
             treatment = addPersonScreenValues.treatment,
             category = addPersonScreenValues.category ?: return,
             isClosed = false,
-            additionaNotes = "", //TODO
+            additionaNotes = addPersonScreenValues.additionalNotes.orEmpty(),
             addedAt = System.currentTimeMillis(),
             updatedAt = System.currentTimeMillis()
         )

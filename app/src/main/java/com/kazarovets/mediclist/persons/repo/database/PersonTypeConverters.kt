@@ -23,11 +23,12 @@ object PersonTypeConverters {
     }
 
 
-    private val CATEGORY_COVID = "COVID"
-    private val CATEGORY_COVID_PNEUMONIA = "COVID_PNEUMONIA"
-    private val CATEGORY_LEVEL1 = "level1"
-    private val CATEGORY_LEVEL2 = "level2"
-    private val CATEGORY_PROBABLE = "probable"
+    private const val CATEGORY_COVID = "COVID"
+    private const val CATEGORY_COVID_PNEUMONIA = "COVID_PNEUMONIA"
+    private const val CATEGORY_PNEUMONIA = "PNEUMONIA"
+    private const val CATEGORY_LEVEL1 = "level1"
+    private const val CATEGORY_LEVEL2 = "level2"
+    private const val CATEGORY_PROBABLE = "probable"
 
     @TypeConverter
     @JvmStatic
@@ -35,6 +36,7 @@ object PersonTypeConverters {
         return when (c) {
             CATEGORY_COVID -> CovidCategory.COVID
             CATEGORY_COVID_PNEUMONIA -> CovidCategory.COVID_PNEUMONIA
+            CATEGORY_PNEUMONIA -> CovidCategory.PNEUMONIA
             CATEGORY_LEVEL1 -> CovidCategory.LEVEL1
             CATEGORY_LEVEL2 -> CovidCategory.LEVEL2
             CATEGORY_PROBABLE -> CovidCategory.PROBABLE
@@ -48,6 +50,7 @@ object PersonTypeConverters {
         return when (c) {
             CovidCategory.COVID -> CATEGORY_COVID
             CovidCategory.COVID_PNEUMONIA -> CATEGORY_COVID_PNEUMONIA
+            CovidCategory.PNEUMONIA -> CATEGORY_PNEUMONIA
             CovidCategory.LEVEL1 -> CATEGORY_LEVEL1
             CovidCategory.LEVEL2 -> CATEGORY_LEVEL2
             CovidCategory.PROBABLE -> CATEGORY_PROBABLE

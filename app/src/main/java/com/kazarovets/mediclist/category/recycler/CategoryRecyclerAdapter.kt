@@ -32,6 +32,7 @@ fun bindStatus(view: TextView, person: CategoryUIPerson?) {
         when (person.category) {
             CovidCategory.COVID -> R.string.category_covid_short
             CovidCategory.COVID_PNEUMONIA -> R.string.category_covid_pneumonia_short
+            CovidCategory.PNEUMONIA -> R.string.category_covid_pneumonia_short
             CovidCategory.LEVEL1 -> R.string.category_level_1_short
             CovidCategory.LEVEL2 -> R.string.category_level_2_short
             CovidCategory.PROBABLE -> R.string.category_probable_short
@@ -43,6 +44,7 @@ fun bindStatus(view: TextView, person: CategoryUIPerson?) {
             when (person.tabCategory) {
                 TabCategory.COVID -> R.color.palette_red
                 TabCategory.COVID_PNEUMONIA -> R.color.palette_dark_red
+                TabCategory.PNEUMONIA -> R.color.palette_dark_blue
                 TabCategory.LEVEL1 -> R.color.palette_pink
                 TabCategory.LEVEL2 -> R.color.palette_dark_purple
                 TabCategory.PROBABLE -> R.color.palette_green

@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import com.kazarovets.mediclist.addperson.AddPersonFragment
 import com.kazarovets.mediclist.changeperson.ChangePersonFragment
 import com.kazarovets.mediclist.home.HomeFragment
+import com.kazarovets.mediclist.smearstable.SmearsTableFragment
 
 object Screens {
 
@@ -12,6 +13,8 @@ object Screens {
     fun addPerson() = fromFragment(AddPersonFragment())
 
     fun changePerson(id: Int) = fromFragment(ChangePersonFragment.newInstance(id))
+
+    fun smearsTable() = fromFragment(SmearsTableFragment())
 
     private fun fromFragment(fragment: Fragment): AppScreen {
         return object : AppScreen() {

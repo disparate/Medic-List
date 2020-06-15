@@ -33,7 +33,8 @@ class ChangePersonViewModel @Inject constructor(
             isClosed = person.isClosed,
             smears = person.smearsDates,
             disabilityCertificate = person.disabilityCertificateDate,
-            treatment = person.treatment
+            treatment = person.treatment,
+            additionalNotes = person.additionaNotes
         )
     }
 
@@ -48,7 +49,8 @@ class ChangePersonViewModel @Inject constructor(
                 smearsDates = values.smears.orEmpty(),
                 disabilityCertificateDate = values.disabilityCertificate
                     ?: it.disabilityCertificateDate,
-                treatment = values.treatment ?: it.treatment
+                treatment = values.treatment ?: it.treatment,
+                additionaNotes = values.additionalNotes ?: it.additionaNotes
             )
             repo.updatePerson(newPerson)
         }

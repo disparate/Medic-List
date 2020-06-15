@@ -4,6 +4,7 @@
 
     <string name="category_covid">COVID</string>
     <string name="category_covid_pneumonia">COVID + J18</string>
+    <string name="category_pneumonia">J18</string>
     <string name="category_level_1">I ур.</string>
     <string name="category_level_2">II ур.</string>
     <string name="category_probable">Вероятные</string>
@@ -12,6 +13,7 @@
 
     <string name="category_covid_short">C+</string>
     <string name="category_covid_pneumonia_short">C+ J18</string>
+    <string name="category_pneumonia_short">J18</string>
     <string name="category_level_1_short">I</string>
     <string name="category_level_2_short">II</string>
     <string name="category_probable_short">+-</string>
@@ -26,9 +28,12 @@
     <string name="add_new_smears">Мазки:</string>
     <string name="add_new_disability_certificate">ЛН:</string>
     <string name="add_new_disability_treatment">Лечение:</string>
+    <string name="add_new_additional_notes">Заметки:</string>
     <string name="add_new_button_add">Создать</string>
 
 
     <string name="change_person_title">Изменение</string>
     <string name="change_person_button">Сохранить</string>
+
+    <string name="smears_table_title">Таблица мазков</string>
 </resources>

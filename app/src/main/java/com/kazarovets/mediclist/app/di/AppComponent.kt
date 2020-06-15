@@ -5,6 +5,7 @@ import com.kazarovets.mediclist.app.di.navigation.NavigationModule
 import com.kazarovets.mediclist.app.di.navigation.NavigationProvider
 import com.kazarovets.mediclist.app.di.vm.RepositoriesProvider
 import com.kazarovets.mediclist.persons.di.PersonsDBModule
+import com.kazarovets.mediclist.phonecontacts.PhoneContactsManager
 import dagger.Component
 import javax.inject.Singleton
 
@@ -18,4 +19,5 @@ import javax.inject.Singleton
 )
 interface AppComponent : NavigationProvider, RepositoriesProvider {
     fun provideApp(): Application
+    fun providePhoneContactsManager(): PhoneContactsManager
 }

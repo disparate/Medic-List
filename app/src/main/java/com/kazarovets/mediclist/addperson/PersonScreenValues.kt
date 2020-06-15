@@ -10,5 +10,6 @@ data class PersonScreenValues(
     val isClosed: Boolean?,
     val smears: List<String>,
     val disabilityCertificate: String?,
-    val treatment: String?
+    val treatment: String?,
+    val additionalNotes: String?
 )
